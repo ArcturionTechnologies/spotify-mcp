@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spotify-mcp"
+version = "1.0.0"
+description = "Dependency-free Spotify MCP server (stdio JSON-RPC): playback, queue, search, library, bulk playlist tools, plus a CLI."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "Robert Lingoes" }]
+keywords = ["mcp", "spotify", "model-context-protocol", "claude"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+spotify-mcp = "spotify_mcp.server:main"
+spotify-mcp-cli = "spotify_mcp.cli:main"
+
+[tool.setuptools]
+packages = ["spotify_mcp"]
+py-modules = ["auth_setup"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
